@@ -1,0 +1,25 @@
+.content {
+    display: flex;
+    flex-direction: row;
+
+    .text {
+        text-align: center;
+        align-self: center;
+    }
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    input {
+        height: 65%;
+        width: 20%;
+    }
+}

@@ -1,9 +1,13 @@
 import React from "react"
 
-const ProfilePage = () => {
+import {
+    useParams
+} from "react-router-dom"
 
+const ProfilePage = () => {
+    let { profileId } = useParams();
     return (
-        <div>profile</div>
+        <div>profile {profileId}</div>
     )
 }
 
