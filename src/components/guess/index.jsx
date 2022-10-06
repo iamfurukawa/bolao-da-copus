@@ -28,7 +28,9 @@ const GuessComponent = () => {
         try {
             const data = await BolopusApi.retrieveMatches()
             //console.log(data.filter(match => moment().startOf('day').isSame(moment(match.horario).startOf('day'))))
-            setMatches(data.filter(match => moment().startOf('day').isSame(moment(match.horario).startOf('day'))))
+            const matchesOfDay = data.filter(match => moment().startOf('day').isSame(moment(match.horario).startOf('day')))
+            const sortedMatches  = matchesOfDay.sort((a,b) => moment(a.horario).unix() - moment(b.horario).unix())
+            setMatches(sortedMatches)
         } catch (e) {
             console.error('Falha ao recuperar matches e=', e)
             setMatches([])

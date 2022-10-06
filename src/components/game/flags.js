@@ -1,6 +1,6 @@
 import ALE from "../../assets/flags/Alemanha.svg";
 import ARA from "../../assets/flags/ArabiaSaudita.svg";
-import AGR from "../../assets/flags/Argentina.svg";
+import ARG from "../../assets/flags/Argentina.svg";
 import AUS from "../../assets/flags/Australia.svg";
 import BEL from "../../assets/flags/Belgica.svg";
 import BRA from "../../assets/flags/Brasil.svg";
@@ -177,7 +177,7 @@ const Flag = () => {
         converterFlag,
         ALE,
         ARA,
-        AGR,
+        ARG,
         AUS,
         BEL,
         BRA,
