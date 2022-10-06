@@ -7,8 +7,8 @@ import LocalStorageService from '../local-storage';
 
 const BolopusApi = () => {
 
-    //const BASE_URL = 'https://bolao-da-copus-api.vercel.app/api'
-    const BASE_URL = 'http://localhost:3000/api'
+    const BASE_URL = 'https://bolao-da-copus-api.vercel.app/api'
+    //const BASE_URL = 'http://localhost:3000/api'
 
     const signIn = async (document, password) => {
         const res = await axios.get(BASE_URL + '/auth', {

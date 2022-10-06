@@ -43,11 +43,13 @@ const GuessComponent = () => {
         <div className={styles.content}>
             <h1>{title}</h1>
             {
-                matches.map(match => {
-                    return (
-                        <GameComponent key={match.id} match={match} bets={bets} />
-                    )
-                })
+                matches.length === 0
+                    ? <h2>Não há jogos hoje!</h2>
+                    : matches.map(match => {
+                        return (
+                            <GameComponent key={match.id} match={match} bets={bets} />
+                        )
+                    })
             }
         </div>
     )

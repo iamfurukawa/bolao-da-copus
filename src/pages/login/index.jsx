@@ -22,6 +22,7 @@ const LoginPage = () => {
             toast.dismiss(toastLoading);
             navigate('/')
         } catch (e) {
+            toast.dismiss(toastLoading);
             console.error('Erro ao logar: ', e)
             toast.error("Erro ao logar.", { position: "top-right" })
         }

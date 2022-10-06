@@ -7,15 +7,12 @@ import Flags from "./flags"
 import styles from './game.module.scss'
 
 const GameComponent = ({ match, bets }) => {
-
-    const [bet, setBet] = useState(null)
     const [time1, setTime1] = useState(null)
     const [time2, setTime2] = useState(null)
 
     useEffect(() => {
         const betFounded = bets.find(b => b.gameId == match.id) || null
         if (betFounded) {
-            setBet(betFounded)
             setTime1(betFounded.time1.gols)
             setTime2(betFounded.time2.gols)
         }
