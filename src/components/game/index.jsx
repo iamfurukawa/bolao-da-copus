@@ -9,7 +9,7 @@ import styles from './game.module.scss'
 const GameComponent = ({ match, bets }) => {
     const [time1, setTime1] = useState(null)
     const [time2, setTime2] = useState(null)
-    console.log(match)
+    
     useEffect(() => {
         const betFounded = bets.find(b => b.gameId == match.id) || null
         if (betFounded) {
