@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import toast, { Toaster } from 'react-hot-toast'
+import moment from 'moment'
 
 import BolopusApi from '../../services/api'
 import Flags from "./flags"
@@ -9,6 +10,7 @@ import styles from './game.module.scss'
 const GameComponent = ({ match, bets }) => {
     const [time1, setTime1] = useState(null)
     const [time2, setTime2] = useState(null)
+    const active = moment().isBefore(moment(match.horario).add(1, 'minute'))
 
     useEffect(() => {
         const betFounded = bets.find(b => b.gameId == match.id) || null
@@ -47,15 +49,15 @@ const GameComponent = ({ match, bets }) => {
             <div className={styles.content}>
                 <div className={styles.box}>
                     <img src={Flags.converterFlag(match.time1.nome)} className={styles.icon}></img>
-                    <input type={'text'} value={time1 || ''} onChange={(evt) => setTime1(evt.target.value)} disabled={!match.active} />
+                    <input type={'text'} value={time1 || ''} onChange={(evt) => setTime1(evt.target.value)} disabled={!active} />
                 </div>
                 <div className={styles.text}>X</div>
                 <div className={styles.box}>
-                    <input type={'text'} value={time2 || ''} onChange={(evt) => setTime2(evt.target.value)} disabled={!match.active} />
+                    <input type={'text'} value={time2 || ''} onChange={(evt) => setTime2(evt.target.value)} disabled={!active} />
                     <img src={Flags.converterFlag(match.time2.nome)} className={styles.icon}></img>
                 </div>
             </div>
-            <button onClick={save} disabled={!match.active || time1 === null || time2 === null || time1 === '' || time2 === ''}>Salvar aposta</button>
+            <button onClick={save} disabled={!active || time1 === null || time2 === null || time1 === '' || time2 === ''}>Salvar aposta</button>
         </>
     )
 }
